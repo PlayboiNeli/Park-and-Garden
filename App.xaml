@@ -1,0 +1,7 @@
+﻿<Application
+    x:Class="Park_and_Garden.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Park_and_Garden">
+
+</Application>
