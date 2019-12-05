@@ -26,5 +26,10 @@ namespace Park_and_Garden
         {
             this.InitializeComponent();
         }
+
+        private void MenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            MenuSplitView.IsPaneOpen = !MenuSplitView.IsPaneOpen;
+        }
     }
 }

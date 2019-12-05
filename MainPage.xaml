@@ -8,7 +8,65 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.Resources>
+        <Style x:Key="MenuListItems" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+
+        <Style x:Key="MenuListItemIcons" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="27"/>
+            <Setter Property="Margin" Value="0,0,20,0"/>
+            <Setter Property="FontFamily" Value="Segoe MDL2 Assets"/>
+        </Style>
+    </Page.Resources>
+
     <Grid>
+        <Grid.ColumnDefinitions>
+    <ColumnDefinition Width="Auto"/>
+    <ColumnDefinition Width="*"/>
+</Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <RelativePanel>
+            <Button Name="MenuButton" Content="&#xE700;" FontFamily="Segoe MDL2 Assets" FontSize="30" Click="MenuButton_Click"/>
+        </RelativePanel>
+        <SplitView Name="MenuSplitView" CompactPaneLength="51" OpenPaneLength="185" Grid.Row="1" Grid.ColumnSpan="2" DisplayMode="CompactOverlay">
+            <SplitView.Pane>
+                <ListView SelectedItem="">
+                    <ListViewItem Name="ListViewItem_Home">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource MenuListItemIcons}" Text="&#xEA8A;"/>
+                            <TextBlock Style="{StaticResource MenuListItems}" Text="Home"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Name="ListViewItem_Search">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource MenuListItemIcons}" Text="&#xE721;" FontSize="24"/>
+                            <TextBlock Style="{StaticResource MenuListItems}" Text="Search"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Name="ListViewItem_Users">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource MenuListItemIcons}" Text="&#xE716;"/>
+                            <TextBlock Style="{StaticResource MenuListItems}" Text="User List"/>
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Name="ListViewItem_Add">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource MenuListItemIcons}" Text="&#xE948;"/>
+                            <TextBlock Style="{StaticResource MenuListItems}" Text="Add new item"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </SplitView.Pane>
+        </SplitView>
 
     </Grid>
 </Page>
