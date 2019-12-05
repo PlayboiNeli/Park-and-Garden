@@ -8,20 +8,23 @@ namespace Park_and_Garden.Model
 {
     public class User
     {
-        public User(string name, string username, string password)
+        public User(string name, string username, string password, int phoneNumber)
         {
             Name = name;
             Username = username;
             Password= password;
+            PhoneNumber = phoneNumber;
         }
 
-        public string Password { get; }
+        public int PhoneNumber { get; set; }
 
-        public string Username { get; }
+        public string Password { get; set; }
 
-        public string Name { get; }
+        public string Username { get; set; }
 
-        public void EditQuantity()
-        { }
+        public string Name { get; set; }
+
+
+        
     }
 }
