@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Park_and_Garden.View;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.Contacts;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -30,6 +32,19 @@ namespace Park_and_Garden
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
             MenuSplitView.IsPaneOpen = !MenuSplitView.IsPaneOpen;
+        }
+
+
+        private void MainListView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ListViewItem_Home.IsSelected)
+            {
+            }
+            if (ListViewItem_Search.IsSelected)
+            {
+                MainFrame.Navigate(typeof(Search));
+            }
+
         }
     }
 }
