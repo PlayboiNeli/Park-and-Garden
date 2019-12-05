@@ -18,14 +18,15 @@ namespace Park_and_Garden.Model
 
         public ObservableCollection<User> Users => _users;
 
-        public async void AddUser(User c)
+        public void AddUser(User c)
         {
             _users.Add(c);
         }
 
-        public async void Delete(string phone)
+        public void Delete(string phone)
         {
             var user = _users.FirstOrDefault(c => c.Name == phone);
             _users.Remove(user);
         }
+    }
 }
