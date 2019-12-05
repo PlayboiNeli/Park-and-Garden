@@ -126,6 +126,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Admin.cs" />
+    <Compile Include="Model\Product.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="Model\UsersCatalog.cs" />
     <Compile Include="Properties\Annotations.cs" />

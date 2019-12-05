@@ -36,7 +36,7 @@
         </RelativePanel>
         <SplitView Name="MenuSplitView" CompactPaneLength="51" OpenPaneLength="185" Grid.Row="1" Grid.ColumnSpan="2" DisplayMode="CompactOverlay">
             <SplitView.Pane>
-                <ListView SelectedItem="">
+                <ListView SelectionMode="Single"  Name="MainListView" SelectionChanged="MainListView_OnSelectionChanged">
                     <ListViewItem Name="ListViewItem_Home">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Style="{StaticResource MenuListItemIcons}" Text="&#xEA8A;"/>
@@ -66,6 +66,10 @@
                     </ListViewItem>
                 </ListView>
             </SplitView.Pane>
+
+            <SplitView.Content>
+                <Frame Name="MainFrame" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Frame>
+            </SplitView.Content>
         </SplitView>
 
     </Grid>
