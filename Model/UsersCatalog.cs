@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Windows.ApplicationModel.Contacts;
+
+namespace Park_and_Garden.Model
+{
+    public class UsersCatalog
+    {
+        private static ObservableCollection<User> _users = new ObservableCollection<User>()
+        {
+            new User("Dominik", "dominik3000", "1234", 25693),
+            new Admin("Andreea", "anndreeaagml", "givemelove", 91624580)
+        };
+
+        public ObservableCollection<User> Users => _users;
+
+        public async void AddUser(User c)
+        {
+            _users.Add(c);
+        }
+
+        public async void Delete(string phone)
+        {
+            var user = _users.FirstOrDefault(c => c.Name == phone);
+            _users.Remove(user);
+        }
+}
