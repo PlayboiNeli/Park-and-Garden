@@ -26,9 +26,5 @@ namespace Park_and_Garden.Model
             Common.AllLists.Users.Add(new User(name,username,password,phoneNumber));
         }
 
-        public void DeleteEmployee(User selectedUser)
-        {
-            
-        }
     }
 }
