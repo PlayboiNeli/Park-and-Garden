@@ -3,15 +3,23 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Park_and_Garden.View"
+    xmlns:viewModel="using:Park_and_Garden.ViewModel"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.DataContext>
+        <viewModel:UsersViewModel/>
+    </Page.DataContext>
     <Grid>
-        <TextBlock HorizontalAlignment="Center" Height="54" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Center" Width="486"/>
-
-
-
+        <StackPanel Margin="10,10,1148,652">
+            <TextBox Header="Enter your username:" PlaceholderText="Username" Text="{Binding Username}"  HorizontalAlignment="Center" Height="57" TextWrapping="Wrap" Width="331"/>
+            <PasswordBox Header="Enter your password:" PlaceholderText="Password"  HorizontalAlignment="Center" Height="57" Width="328"/>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button Content="Log-in" Command="{Binding LogInCommand}"/>
+                <Button Content="Cancel" Margin="30"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

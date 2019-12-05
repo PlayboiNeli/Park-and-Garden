@@ -6,6 +6,8 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Exe2009.Common;
 using Park_and_Garden.Annotations;
 using Park_and_Garden.Model;
 
@@ -17,22 +19,22 @@ namespace Park_and_Garden.ViewModel
         private UsersCatalog _userCatalog;
         private User _selectedUser;
         private DeleteCommand _deletionCommand;
+        
 
         public UsersViewModel()
         {
-            _userCatalog = new UsersCatalog();
-            DomainObject();
-            _selectedUser = null;
+            
+               _userCatalog = new UsersCatalog();
+               _selectedUser = null;
+            LogInCommand = new RelayCommand(Login);
             _deletionCommand = new DeleteCommand(_userCatalog, this);
         }
-
-        public void DomainObject()
-        {
-            foreach (var c in _userCatalog.Users)
-            {
-                _domainObject = c;
-            }
-        }
+        public ICommand LogInCommand { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Name { get; set; }
+        public bool IsLogedIn { get; set; }
 
         public User SelectedContact
         {
@@ -49,6 +51,19 @@ namespace Park_and_Garden.ViewModel
             }
         }
 
+        public void Login()
+        {
+
+            //search for user in the list
+            //if user exists then
+            var contact = _userCatalog.Users.FirstOrDefault(c => c.Username == Username);
+            if (contact == null)
+                IsLogedIn = false;
+            else
+                IsLogedIn = true;
+
+        }
+
         public DeleteCommand DeletionCommand
         {
             get { return _deletionCommand; }
@@ -58,7 +73,7 @@ namespace Park_and_Garden.ViewModel
         {
             get { return _userCatalog.Users; }
         }
-
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
 
