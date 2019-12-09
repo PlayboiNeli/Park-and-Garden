@@ -27,6 +27,7 @@ namespace Park_and_Garden
         public MainPage()
         {
             this.InitializeComponent();
+            MainFrame.Navigate(typeof(Home));
         }
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)
@@ -39,6 +40,7 @@ namespace Park_and_Garden
         {
             if (ListViewItem_Home.IsSelected)
             {
+                MainFrame.Navigate(typeof(Home));
             }
             if (ListViewItem_Search.IsSelected)
             {
