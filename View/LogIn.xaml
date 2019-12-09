@@ -13,7 +13,7 @@
         <viewModel:UsersViewModel/>
     </Page.DataContext>
     <Grid>
-        <StackPanel Margin="10,10,1148,652">
+        <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Top">
             <TextBox Header="Enter your username:" PlaceholderText="Username" Text="{Binding Username}"  HorizontalAlignment="Center" Height="57" TextWrapping="Wrap" Width="331"/>
             <PasswordBox Header="Enter your password:" PlaceholderText="Password"  HorizontalAlignment="Center" Height="57" Width="328"/>
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">

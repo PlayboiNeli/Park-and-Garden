@@ -120,6 +120,14 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Model\Flower.cs" />
+    <Compile Include="Model\Plant.cs" />
+    <Compile Include="Model\Pot.cs" />
+    <Compile Include="Model\ProductsCatalog.cs" />
+    <Compile Include="ViewModel\HomeViewModel.cs" />
+    <Compile Include="View\Home.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LogIn.xaml.cs">
       <DependentUpon>LogIn.xaml</DependentUpon>
     </Compile>
@@ -144,6 +152,57 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Pictures\001-rose.png" />
+    <Content Include="Pictures\002-lily.png" />
+    <Content Include="Pictures\003-iris.png" />
+    <Content Include="Pictures\004-sprout.png" />
+    <Content Include="Pictures\005-sunflower.png" />
+    <Content Include="Pictures\006-daisy.png" />
+    <Content Include="Pictures\007-seed.png" />
+    <Content Include="Pictures\008-cactus.png" />
+    <Content Include="Pictures\009-palm-tree.png" />
+    <Content Include="Pictures\010-palm-tree-1.png" />
+    <Content Include="Pictures\011-harebell.png" />
+    <Content Include="Pictures\012-dandelion.png" />
+    <Content Include="Pictures\013-artichoke.png" />
+    <Content Include="Pictures\014-fern.png" />
+    <Content Include="Pictures\015-cherry-blossom.png" />
+    <Content Include="Pictures\016-hibiscus.png" />
+    <Content Include="Pictures\017-grass.png" />
+    <Content Include="Pictures\018-aloe-vera.png" />
+    <Content Include="Pictures\019-bamboo.png" />
+    <Content Include="Pictures\020-fruit-tree.png" />
+    <Content Include="Pictures\021-daffodil.png" />
+    <Content Include="Pictures\022-maple-leaf.png" />
+    <Content Include="Pictures\023-lotus.png" />
+    <Content Include="Pictures\024-cherry-blossom-1.png" />
+    <Content Include="Pictures\025-peony.png" />
+    <Content Include="Pictures\026-clover.png" />
+    <Content Include="Pictures\027-sprout-1.png" />
+    <Content Include="Pictures\028-leaf.png" />
+    <Content Include="Pictures\029-baobab.png" />
+    <Content Include="Pictures\030-oak.png" />
+    <Content Include="Pictures\031-calla.png" />
+    <Content Include="Pictures\032-flower.png" />
+    <Content Include="Pictures\033-plant.png" />
+    <Content Include="Pictures\034-poppy.png" />
+    <Content Include="Pictures\035-daffodil-1.png" />
+    <Content Include="Pictures\036-orchid.png" />
+    <Content Include="Pictures\037-cactus-1.png" />
+    <Content Include="Pictures\038-reed.png" />
+    <Content Include="Pictures\039-pine.png" />
+    <Content Include="Pictures\040-bonsai.png" />
+    <Content Include="Pictures\041-tulip.png" />
+    <Content Include="Pictures\042-anthurium.png" />
+    <Content Include="Pictures\043-carnation.png" />
+    <Content Include="Pictures\044-lily-1.png" />
+    <Content Include="Pictures\045-anemone.png" />
+    <Content Include="Pictures\046-gardenia.png" />
+    <Content Include="Pictures\047-cactus-2.png" />
+    <Content Include="Pictures\048-bush.png" />
+    <Content Include="Pictures\049-tree.png" />
+    <Content Include="Pictures\050-baobab-1.png" />
+    <Content Include="Pictures\gift-box.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -162,6 +221,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\Home.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LogIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -178,6 +241,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />
