@@ -46,6 +46,10 @@ namespace Park_and_Garden
             {
                 MainFrame.Navigate(typeof(Search));
             }
+            if (ListViewItem_Add.IsSelected)
+            {
+                MainFrame.Navigate(typeof(ContactAdd));
+            }
 
         }
     }
