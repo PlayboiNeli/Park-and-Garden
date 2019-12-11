@@ -13,7 +13,8 @@ namespace Park_and_Garden.Model
         private static ObservableCollection<User> _users = new ObservableCollection<User>()
         {
             new User("Dominik", "dominik3000", "1234", 25693),
-            new Admin("Andreea", "anndreeaagml", "givemelove", 91624580)
+            new Admin("Andreea", "anndreeaagml", "givemelove", 91624580),
+            new User ("Leon", "neli", "neli", 91990473)
         };
 
         public ObservableCollection<User> Users => _users;
