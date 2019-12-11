@@ -22,22 +22,17 @@ namespace Park_and_Garden.ViewModel
         private UsersCatalog _userCatalog;
         private User _selectedUser;
         private DeleteCommand _deletionCommand;
-        private ICommand _addCommand;
+        
         
 
         public UsersViewModel()
         {
-         _addCommand= new RelayCommand(AddContact);   
-               _userCatalog = new UsersCatalog();
+            _userCatalog = new UsersCatalog();
                _selectedUser = null;
-            LogInCommand = new RelayCommand(Login);
+               LogInCommand = new RelayCommand(Login);
             _deletionCommand = new DeleteCommand(_userCatalog, this);
         }
-        public ICommand AddCommand
-        {
-            get { return _addCommand;}
-            set { _addCommand = value; }
-        }
+
         public ICommand LogInCommand { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
@@ -87,12 +82,6 @@ namespace Park_and_Garden.ViewModel
         {
             get { return _userCatalog.Users; }
        
-        }
-
-        public void AddContact()
-        {
-            var contact = new User(Name,Username,Password,PhoneNumber);
-            UsersCatalog.AddUser(contact);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

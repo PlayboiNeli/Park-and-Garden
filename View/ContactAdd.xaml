@@ -39,28 +39,28 @@
     <Grid>
         <Frame Name="AddContactFrame" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="511" Width="520">
-                <TextBox Style="{StaticResource BlockStyle}" Header="Name">
+                <TextBox Style="{StaticResource BlockStyle}" Header="Name" Text="{Binding Name}">
                     <TextBox.HeaderTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding}" Foreground="White"/>
                         </DataTemplate>
                     </TextBox.HeaderTemplate>
                 </TextBox>
-                <TextBox Style="{StaticResource BlockStyle}" Header="Username">
+                <TextBox Style="{StaticResource BlockStyle}" Header="Username" Text="{Binding Username}">
                     <TextBox.HeaderTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding}" Foreground="White"/>
                         </DataTemplate>
                     </TextBox.HeaderTemplate>
                 </TextBox>
-                <TextBox Style="{StaticResource Password}" Header="Password" Background="White" FontSize="30" Height="97">
+                <TextBox Style="{StaticResource Password}" Header="Password" Background="White" FontSize="30" Height="97" Text="{Binding Password}">
                     <TextBox.HeaderTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding}" Foreground="White" FontFamily="TimesNew" />
                         </DataTemplate>
                     </TextBox.HeaderTemplate>
                 </TextBox>
-                <TextBox Style="{StaticResource BlockStyle}" Header="Phone number">
+                <TextBox Style="{StaticResource BlockStyle}" Header="Phone number" Text="{Binding PhoneNumber}">
                     <TextBox.HeaderTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding}" Foreground="White"/>
@@ -69,7 +69,7 @@
                 </TextBox>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button Style="{StaticResource ButtonStyle}" Margin="20" Content="Cancel" Click="Button_Click"/>
-                    <Button Style="{StaticResource ButtonStyle}"  Content="Create Account" Click="Button_Click_1" Command="{Binding AddCommand}"/>
+                    <Button Style="{StaticResource ButtonStyle}"  Content="Create Account" Command="{Binding AddCommand}"/>
                 </StackPanel>
             </StackPanel>
         </Frame>
