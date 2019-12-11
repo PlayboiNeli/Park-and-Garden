@@ -31,5 +31,10 @@ namespace Park_and_Garden.View
         {
             AddContactFrame.Navigate(typeof(Home));
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

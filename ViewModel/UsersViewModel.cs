@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.Graphics.Printing;
 using Windows.UI.WebUI;
 using Windows.UI.Xaml.Controls;
 using Exe2009.Common;
@@ -22,19 +23,20 @@ namespace Park_and_Garden.ViewModel
         private User _selectedUser;
         private DeleteCommand _deletionCommand;
         
+        
 
         public UsersViewModel()
         {
-            
-               _userCatalog = new UsersCatalog();
+            _userCatalog = new UsersCatalog();
                _selectedUser = null;
-            LogInCommand = new RelayCommand(Login);
+               LogInCommand = new RelayCommand(Login);
             _deletionCommand = new DeleteCommand(_userCatalog, this);
         }
+
         public ICommand LogInCommand { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public string PhoneNumber { get; set; }
+        public int PhoneNumber { get; set; }
         public string Name { get; set; }
         public static bool IsLogedIn { get; set; }
 
@@ -77,8 +79,8 @@ namespace Park_and_Garden.ViewModel
         public ObservableCollection<User> UsersCollection
         {
             get { return _userCatalog.Users; }
+       
         }
-        
 
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -9,19 +9,15 @@
     Background="#25282A">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="200*"/>
-            <RowDefinition Height="493*"/>
-            <RowDefinition Height="354*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="680"/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="0">
-            <TextBox Text="Search" FontSize="50" Foreground="#464646" Height="80" Width="500" VerticalContentAlignment="Center" HorizontalAlignment="Left" BorderBrush="DimGray" Background="#D3D4D4" />
-            <Button Height="80" Width="100" Background="#D3D4D4" FontFamily="Segoe MDL2 Assets" Content="&#xE71E;" FontSize="50" Foreground="#464646" BorderBrush="DimGray"/>
-        </StackPanel>
+        <Frame Name="SearchFrame" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Margin="150,0,0,550">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="0">
+                    <TextBox Text="Search" FontSize="50" Foreground="#464646" Height="80" Width="500" BorderBrush="DimGray" Background="#D3D4D4" />
+                    <Button Height="80" Width="100" Background="#D3D4D4" FontFamily="Segoe MDL2 Assets" Content="&#xE71E;" FontSize="50" Foreground="#464646" BorderBrush="DimGray"/>
+                </StackPanel>
+
+            </StackPanel>
+
+        </Frame>
     </Grid>
 </Page>

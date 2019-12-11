@@ -19,7 +19,7 @@ namespace Park_and_Garden.Model
 
         public ObservableCollection<User> Users => _users;
 
-        public void AddUser(User c)
+        public static void AddUser(User c)
         {
             _users.Add(c);
         }
