@@ -12,13 +12,16 @@ namespace Park_and_Garden.ViewModel
     {
 
         private UsersCatalog _catalog;
+        private ProductsCatalog _pcatalog;
         private UsersViewModel _viewModel;
+        private HomeViewModel _pViewModel;
 
         public DeleteCommand(UsersCatalog catalog, UsersViewModel viewModel)
         {
             _catalog = catalog;
             _viewModel = viewModel;
         }
+
         public bool CanExecute(object parameter)
         {
             return _viewModel.SelectedContact != null;

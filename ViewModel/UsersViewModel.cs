@@ -66,8 +66,6 @@ namespace Park_and_Garden.ViewModel
                     IsLogedIn = true;
                 else IsLogedIn = false;
             }
-
-
         }
 
 

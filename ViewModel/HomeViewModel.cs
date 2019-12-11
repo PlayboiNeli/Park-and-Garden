@@ -21,16 +21,16 @@ using Newtonsoft.Json;
 namespace Park_and_Garden.ViewModel 
 {
     [Serializable]
-    class HomeViewModel :INotifyPropertyChanged
+     class HomeViewModel :INotifyPropertyChanged
     {
         private ProductsCatalog _productsCatalog;
         private Product _product;
-
 
         public HomeViewModel()
         {
             AddCommand = new RelayCommand(AddNewProduct);
             _productsCatalog = ProductsCatalog.Instance;
+            IncreaseCommand = new RelayCommand(IncreaseProductStock);
             // Products.Add("Pots",Pots);
             // Products.Add("Goods", Goods);
             //  Products.Add("Plants", Plants);
@@ -40,13 +40,12 @@ namespace Park_and_Garden.ViewModel
              AddToPoductDictionary("Plants");
              AddToPoductDictionary("Pots");
              AddToPoductDictionary("Flowers");*/
-
-
-
         }
 
 
         public ICommand AddCommand { get; set; }
+        public ICommand IncreaseCommand { get; set; }
+        public ICommand DecreaseCommand { get; set; }
 
         private KeyValuePair<string, ObservableCollection<Product>> _selectedProductDictionary;
         public KeyValuePair<string, ObservableCollection<Product>> SelectedProductDictionary
@@ -75,7 +74,7 @@ namespace Park_and_Garden.ViewModel
 
         private ObservableCollection<string> _optionForPicture = new ObservableCollection<string>()
         {
-            "lily", "rose","lotus",
+            "lily", "rose","lotus","aloe-vera", "anemone", "anthurium"
         };
         public ObservableCollection<string> optionForPicture
         {
@@ -107,6 +106,11 @@ namespace Park_and_Garden.ViewModel
            await _productsCatalog.AddNewProduct(addproducturl,addproductname,addproductcost,addproducttype,addproductstock,addproductcolor,addproductsize);
         }
 
+        public void IncreaseProductStock()
+        {
+            SelectedProduct.Stock++;
+            OnPropertyChanged();
+        }
        
         public event PropertyChangedEventHandler PropertyChanged;
 

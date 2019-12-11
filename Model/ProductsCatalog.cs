@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 
 namespace Park_and_Garden.Model
 {
-    class ProductsCatalog
+     class ProductsCatalog
     {
         private static ProductsCatalog _instance = null;
         private ObservableCollection<Product> _goods = new ObservableCollection<Product>();
@@ -133,12 +133,7 @@ namespace Park_and_Garden.Model
                 }
             }
 
-
-
-
-            string json = JsonConvert.SerializeObject(_products);
-             await FileIO.WriteTextAsync(await _storageFolder.CreateFileAsync(ProductsData, CreationCollisionOption.OpenIfExists), json);
-             
+             SaveDomainObjects();
          }
 
         private void OnPropertyChanged()
@@ -146,6 +141,12 @@ namespace Park_and_Garden.Model
             throw new NotImplementedException();
         }
 
+
+        public async  Task SaveDomainObjects()
+        {
+            string json = JsonConvert.SerializeObject(_products);
+            await FileIO.WriteTextAsync(await _storageFolder.CreateFileAsync(ProductsData, CreationCollisionOption.OpenIfExists), json);
+        }
         public async Task LoadDomainObjects()
         {
             string products = await FileIO.ReadTextAsync(await _storageFolder.CreateFileAsync(ProductsData, CreationCollisionOption.OpenIfExists));

@@ -158,6 +158,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Pictures\ParkÉsKert2.png" />
     <Content Include="Pictures\rose.png" />
     <Content Include="Pictures\lily.png" />
     <Content Include="Pictures\iris.png" />
