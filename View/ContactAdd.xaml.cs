@@ -26,5 +26,10 @@ namespace Park_and_Garden.View
         {
             this.InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AddContactFrame.Navigate(typeof(Home));
+        }
     }
 }

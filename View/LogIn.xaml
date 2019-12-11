@@ -20,11 +20,11 @@
     <Grid>
         <Frame Name="MainFrame" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBox Header="Enter your username:" PlaceholderText="Username" Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  HorizontalAlignment="Center" Height="57" TextWrapping="Wrap" Width="331"/>
+                <TextBox Header="Enter your username:" PlaceholderText="Username" Text="{Binding Username, Mode=TwoWay}"  HorizontalAlignment="Center" Height="57" TextWrapping="Wrap" Width="331"/>
             <TextBlock Text="Password:"/>
-                <TextBox Style="{StaticResource Password}" Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0, 3" />
+                <TextBox Style="{StaticResource Password}" Text="{Binding Password, Mode=TwoWay}" Margin="0, 3" />
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
-                    <Button Content="Log-in" Command="{Binding LogInCommand, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Click="Button_Click"/>
+                    <Button Content="Log-in" Command="{Binding LogInCommand, Mode=TwoWay}" Click="Button_Click"/>
                     <Button Content="Cancel" Margin="30"/>
                 </StackPanel>
         </StackPanel>

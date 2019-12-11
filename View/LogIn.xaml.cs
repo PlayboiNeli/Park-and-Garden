@@ -31,7 +31,6 @@ namespace Park_and_Garden.View
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if(ViewModel.UsersViewModel.IsLogedIn) MainFrame.Navigate(typeof(MainPage));
-            
         }
     }
 }

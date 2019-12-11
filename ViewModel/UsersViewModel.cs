@@ -65,8 +65,8 @@ namespace Park_and_Garden.ViewModel
                 if (contact.Password == Password)
                     IsLogedIn = true;
                 else IsLogedIn = false;
-
             }
+
 
         }
 
