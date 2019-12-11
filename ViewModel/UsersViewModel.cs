@@ -83,7 +83,7 @@ namespace Park_and_Garden.ViewModel
             get { return _deletionCommand; }
         }
 
-        public ObservableCollection<User> ContactsCollection
+        public ObservableCollection<User> UsersCollection
         {
             get { return _userCatalog.Users; }
        

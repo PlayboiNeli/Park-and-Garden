@@ -5,40 +5,157 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Windows.Storage;
+using Exe2009.Common;
+using Newtonsoft.Json;
 
 namespace Park_and_Garden.Model
 {
     class ProductsCatalog
     {
-       /* private Dictionary<string, ObservableCollection<Product>> _products = new Dictionary<string, ObservableCollection<Product>>()
+        private static ProductsCatalog _instance = null;
+        private ObservableCollection<Product> _goods = new ObservableCollection<Product>();
+        private ObservableCollection<Product> _pots = new ObservableCollection<Product>();
+        private ObservableCollection<Product> _plants = new ObservableCollection<Product>();
+        private ObservableCollection<Product> _flowers = new ObservableCollection<Product>();
+        private Dictionary<string, ObservableCollection<Product>> _products = new Dictionary<string, ObservableCollection<Product>>();
+        private const string ProductsData = "products.dat";
+        private readonly StorageFolder _storageFolder = ApplicationData.Current.LocalFolder;
+
+
+        //If I use singleton it  must be private so nobody can create a new object.
+        private ProductsCatalog()
         {
-        };
-        private ObservableCollection<Product> _goods;
-        private ObservableCollection<Pot> _pots;
-        private ObservableCollection<Plant> _plants;
-        private ObservableCollection<Flower> _flowers;
-
-
-        public ObservableCollection<Product> Goods { get; set; }
-        public ObservableCollection<Pot> Pots { get; set; }
-        public ObservableCollection<Plant> Plants { get; set; }
-        public ObservableCollection<Flower> Flowers { get; set; }
-
-        public Dictionary<string, ObservableCollection<Product>> Products => _products;
-
-        public ProductsCatalog()
-        {
-            Goods.Add(new Product("Virág",50,3,""));
-            Products.Add("Goods", Goods);
-            Products.Add("Pots", Goods);
-            Products.Add("Goods", Goods);
-            Products.Add("Goods", Goods);
-
+            
         }
 
+        public static ProductsCatalog Instance
+        {
+            get {
+                if (_instance ==null)
+                {
+                    _instance =new ProductsCatalog();
+                }
+
+                return _instance;
+            }
+        }
+
+
+        public Dictionary<string, ObservableCollection<Product>> Products
+         {
+             get { return _products; }
+             set { _products = value; }
+         }
+
+         public ObservableCollection<Product> Goods
+         {
+             get { return _goods; }
+             set { _goods = value; }
+         }
+         public ObservableCollection<Product> Pots
+         {
+             get { return _pots; }
+             set { _pots = value; }
+         }
+         public ObservableCollection<Product> Plants
+         {
+             get { return _plants; }
+             set { _plants = value; }
+         }
+
+         public ObservableCollection<Product> Flowers
+         {
+             get { return _flowers; }
+             set { _flowers = value; }
+         }
+
+
+
+
+         public async Task AddNewProduct( string addproducturl, string addproductname, string addproductcost, string addproducttype, string addproductstock, string addproductcolor, string addproductsize)
+         {
+             
+             if (addproducttype == "Pots")
+             {
+                 var product = new Pot(addproductname, Convert.ToInt32(addproductcost), Convert.ToInt32(addproductstock),
+                     addproducturl, addproductcolor, addproductsize);
+                if (!_products.ContainsKey(addproducttype))
+                {
+                    _products.Add(addproducttype, Pots);
+                }
+                else
+                {
+                    _products[addproducttype].Add(product);
+                }
+
+            }
+             if (addproducttype == "Flowers")
+             {
+                var product = new Flower(addproductname, Convert.ToInt32(addproductcost), Convert.ToInt32(addproductstock),
+                     addproducturl, addproductcolor, addproductsize);
+
+                if (!_products.ContainsKey(addproducttype))
+                {
+                    _products.Add(addproducttype, Pots);
+                }
+                else
+                {
+                    _products[addproducttype].Add(product);
+                }
+            }
+             if (addproducttype == "Plants")
+             {
+                 var product = new Plant(addproductname, Convert.ToInt32(addproductcost), Convert.ToInt32(addproductstock),
+                     addproducturl, addproductcolor);
+                
+                 if (!_products.ContainsKey(addproducttype))
+                 {
+                     _products.Add(addproducttype, Pots);
+                 }
+                 else
+                 {
+                     _products[addproducttype].Add(product);
+                 }
+            }
+             if (addproducttype == "Goods")
+             { 
+                var product = new Product(addproductname, Convert.ToInt32(addproductcost), Convert.ToInt32(addproductstock),
+                     addproducturl);
+                if (!_products.ContainsKey(addproducttype))
+                {
+                    _products.Add(addproducttype, Pots);
+                }
+                else
+                {
+                    _products[addproducttype].Add(product);
+                }
+            }
+
+
+
+
+            string json = JsonConvert.SerializeObject(_products);
+             await FileIO.WriteTextAsync(await _storageFolder.CreateFileAsync(ProductsData, CreationCollisionOption.OpenIfExists), json);
+             
+         }
+
+        private void OnPropertyChanged()
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task LoadDomainObjects()
+        {
+            string products = await FileIO.ReadTextAsync(await _storageFolder.CreateFileAsync(ProductsData, CreationCollisionOption.OpenIfExists));
+            _products = JsonConvert.DeserializeObject<Dictionary<string, ObservableCollection<Product>>>(products);
+        }
+
+
         public override string ToString()
-      {
-          return base.ToString();
-      }*/
+       {
+           return base.ToString();
+       }
     }
 }

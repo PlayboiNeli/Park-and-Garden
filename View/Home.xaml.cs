@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Park_and_Garden.ViewModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,11 +26,25 @@ namespace Park_and_Garden.View
         public Home()
         {
             this.InitializeComponent();
+            
         }
+
 
         private void Selector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void HomeListViewSelected_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           if (HomeListViewSelected.SelectedItem == null)
+            {
+                productstackpanne.Visibility = Visibility.Collapsed;
+            }
+            if (HomeListViewSelected.SelectedItem != null)
+            {
+                productstackpanne.Visibility = Visibility.Visible;
+            }
         }
     }
 }

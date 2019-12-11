@@ -20,7 +20,7 @@
     <Grid>
         <Frame Name="MainFrame" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBox Header="Enter your username:" PlaceholderText="Username" Text="{Binding Username, Mode=TwoWay}"  HorizontalAlignment="Center" Height="57" TextWrapping="Wrap" Width="331"/>
+                <TextBox Header="Enter your username:" PlaceholderText="Username" Text="{Binding Username, Mode=TwoWay}"  HorizontalAlignment="Center" Height="57" TextWrapping="Wrap" Width="331" />
             <TextBlock Text="Password:"/>
                 <TextBox Style="{StaticResource Password}" Text="{Binding Password, Mode=TwoWay}" Margin="0, 3" />
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
