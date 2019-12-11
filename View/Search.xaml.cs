@@ -26,5 +26,10 @@ namespace Park_and_Garden.View
         {
             this.InitializeComponent();
         }
+
+        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
