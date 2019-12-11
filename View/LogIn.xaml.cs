@@ -26,5 +26,12 @@ namespace Park_and_Garden.View
         {
             this.InitializeComponent();
         }
+        
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if(ViewModel.UsersViewModel.IsLogedIn) MainFrame.Navigate(typeof(MainPage));
+            
+        }
     }
 }
