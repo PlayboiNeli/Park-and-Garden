@@ -91,7 +91,7 @@
                 <TextBlock  Margin="4,5,0,0" Text="{Binding SelectedProduct.Color}" HorizontalAlignment="Left"/>
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <TextBlock  Margin="0,5,0,0" Text="Size :" HorizontalAlignment="Left"/>
                 <TextBlock Margin="4,5,0,0" Text="{Binding SelectedProduct.Size}"/>
             </StackPanel>
