@@ -1,0 +1,93 @@
+﻿<Page
+    x:Class="Park_and_Garden.View.Home"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Park_and_Garden.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ViewModel ="using:Park_and_Garden.ViewModel"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <ViewModel:HomeViewModel/>
+    </Page.DataContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+            <ListView Name="HomeListView" ItemsSource="{Binding Products, Mode=TwoWay}" SelectionMode="Single" SelectedItem="{Binding Path=SelectedProductDictionary, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        
+                        <StackPanel Orientation="Vertical">
+                                <TextBlock Foreground="Black" Margin="0,0,0,0" Text="{Binding Key}" FontWeight="Bold"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Foreground="DimGray" Margin="10,0,0,0" Text="{Binding Value.Count}"/>
+                            <TextBlock Foreground="DimGray" Margin="4,0,0,0" Text="items in the list."/>
+                                </StackPanel>
+                            </StackPanel>
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        <ListView Name="HomeListViewSelected" ItemsSource="{Binding SelectedProductDictionary.Value, Mode=TwoWay}" Grid.Column="1" SelectedItem="{Binding SelectedProduct, Mode=TwoWay}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+
+                    <StackPanel Orientation="Vertical">
+
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{Binding Url}" Height="50" Width="50" Margin="5,5,25,5"/>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Foreground="Black" Margin="0,0,0,0" Text="{Binding Name}" FontWeight="Bold"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Foreground="DimGray" Text="{Binding Cost}"/>
+                                    <TextBlock Foreground="DimGray" Text="HUF"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Foreground="DimGray" Text="In stock:"/>
+                                    <TextBlock Foreground="DimGray" Text="{Binding Stock}" Margin="4,0,0,0"/>
+                                </StackPanel>
+                                <TextBlock Foreground="DimGray" Text="{Binding Color}"/>
+                                <TextBlock Foreground="DimGray" Text="{Binding Size}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackPanel Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Image Source="{Binding SelectedProduct.Url}" Height="150" Width="150" Margin="5,5,25,5"/>
+            <TextBlock Foreground="Black" Margin="25,25,25,0" Text="{Binding SelectedProduct.Name}" FontWeight="Bold" FontSize="20"/>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Margin="0,5,0,0" Text="Price :" HorizontalAlignment="Left"/>
+                <TextBlock  Margin="4,5,0,0" Text="{Binding SelectedProduct.Cost}" HorizontalAlignment="Left"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Margin="0,5,0,0" Text="In stock :" HorizontalAlignment="Left"/>
+                <TextBlock  Margin="4,5,0,0" Text="{Binding SelectedProduct.Stock}" HorizontalAlignment="Left"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Margin="0,5,0,0" Text="Color :" HorizontalAlignment="Left"/>
+                <TextBlock  Margin="4,5,0,0" Text="{Binding SelectedProduct.Color}" HorizontalAlignment="Left"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Margin="0,5,0,0" Text="Size :" HorizontalAlignment="Left"/>
+                <TextBlock Margin="4,5,0,0" Text="{Binding SelectedProduct.Size}" HorizontalAlignment="Left"/>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Page>
