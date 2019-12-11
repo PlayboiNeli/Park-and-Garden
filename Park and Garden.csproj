@@ -155,8 +155,8 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Pictures\001-rose.png" />
-    <Content Include="Pictures\002-lily.png" />
+    <Content Include="Pictures\rose.png" />
+    <Content Include="Pictures\lily.png" />
     <Content Include="Pictures\003-iris.png" />
     <Content Include="Pictures\004-sprout.png" />
     <Content Include="Pictures\005-sunflower.png" />
@@ -177,7 +177,7 @@
     <Content Include="Pictures\020-fruit-tree.png" />
     <Content Include="Pictures\021-daffodil.png" />
     <Content Include="Pictures\022-maple-leaf.png" />
-    <Content Include="Pictures\023-lotus.png" />
+    <Content Include="Pictures\lotus.png" />
     <Content Include="Pictures\024-cherry-blossom-1.png" />
     <Content Include="Pictures\025-peony.png" />
     <Content Include="Pictures\026-clover.png" />

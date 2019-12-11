@@ -10,8 +10,11 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Net;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 using Windows.Networking.NetworkOperators;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Exe2009.Common;
 using Park_and_Garden.Annotations;
 using Newtonsoft.Json;
 
@@ -20,81 +23,30 @@ namespace Park_and_Garden.ViewModel
     [Serializable]
     class HomeViewModel :INotifyPropertyChanged
     {
+        private ProductsCatalog _productsCatalog;
         private Product _product;
-        private const string ProductsData = "products.dat";
-        private readonly StorageFolder _storageFolder = ApplicationData.Current.LocalFolder;
-        private ObservableCollection<Product> _goods = new ObservableCollection<Product>()
-        {
-            new Product("Gift-box", 1500, 15, "/Pictures/gift-box.png"),
-            new Product("Gift-box-Smaller", 1100, 19, "/Pictures/gift-box.png")
-        };
 
-        private ObservableCollection<Product> _pots = new ObservableCollection<Product>()
-        {
-            new Pot("Big Red Pot", 400, 3, "/Pictures/008-cactus.png", "Red", "XXL")
-        };
-
-        private ObservableCollection<Product> _plants = new ObservableCollection<Product>()
-        {
-            new Plant("Palm Tree", 25000, 5, "/Pictures/010-palm-tree-1.png","Large"),
-            new Plant("Baobab", 37000, 2, "/Pictures/029-baobab.png","Small"),
-
-        };
-        private ObservableCollection<Product> _flowers = new ObservableCollection<Product>()
-        {
-        new Flower("Tulip", 300, 450, "/Pictures/041-tulip.png", "Red", "Big"),
-        new Flower("Calla", 1100, 70, "/Pictures/031-calla.png", "White", "Medium"),
-        new Flower("Rose", 450, 45, "/Pictures/001-rose.png", "Purple", "Pink")
-
-        };
-
-
-
-
-        private Dictionary<string, ObservableCollection<Product>> _products = new Dictionary<string, ObservableCollection<Product>>()
-        {
-        };
 
         public HomeViewModel()
         {
-            
+            AddCommand = new RelayCommand(AddNewProduct);
+            _productsCatalog = ProductsCatalog.Instance;
+            // Products.Add("Pots",Pots);
+            // Products.Add("Goods", Goods);
+            //  Products.Add("Plants", Plants);
+            // Products.Add("Flowers", Flowers);
 
-            Products.Add("Goods", Goods);
-            Products.Add("Pots", Pots);
-            Products.Add("Plants", Plants);
-            Products.Add("Flowers", Flowers);
-            
+            /*AddToPoductDictionary("Goods");
+             AddToPoductDictionary("Plants");
+             AddToPoductDictionary("Pots");
+             AddToPoductDictionary("Flowers");*/
+
+
 
         }
 
-        public Dictionary<string, ObservableCollection<Product>> Products
-        {
-            get { return _products; }
-            set { _products = value; }
-        }
 
-        public ObservableCollection<Product> Goods
-        {
-            get { return _goods;}
-            set { _goods = value; }
-        } 
-        public ObservableCollection<Product> Pots
-        {
-            get { return _pots;}
-            set { _pots = value; }
-        }
-        public ObservableCollection<Product> Plants
-        {
-            get { return _plants;}
-            set { _plants = value; }
-        }
-
-        public ObservableCollection<Product> Flowers
-        {
-            get { return _flowers;}
-            set { _flowers = value; }
-        }
-
+        public ICommand AddCommand { get; set; }
 
         private KeyValuePair<string, ObservableCollection<Product>> _selectedProductDictionary;
         public KeyValuePair<string, ObservableCollection<Product>> SelectedProductDictionary
@@ -111,6 +63,51 @@ namespace Park_and_Garden.ViewModel
         }
 
 
+        private ObservableCollection<string> _optionForSize = new ObservableCollection<string>()
+        {
+            "Extra Small","Small","Medium", "Large", "Extra Large"
+        };
+        public ObservableCollection<string> optionForSize
+        {
+            get { return _optionForSize; }
+            set { _optionForSize = value; }
+        }
+
+        private ObservableCollection<string> _optionForPicture = new ObservableCollection<string>()
+        {
+            "lily", "rose","lotus",
+        };
+        public ObservableCollection<string> optionForPicture
+        {
+            get { return _optionForPicture; }
+            set { _optionForPicture = value; }
+        }
+        public string addproductname { get; set; }
+        public string addproducttype { get; set; }
+        public string addproductcost { get; set; }
+        public string addproductstock { get; set; }
+        public string addproductcolor { get; set; }
+        public string addproductsize { get; set; }
+        private string _addproducturl;
+
+        public Dictionary<string, ObservableCollection<Product>> Products
+        {
+            get { return _productsCatalog.Products; }
+            set { _productsCatalog.Products = value; }
+        }
+
+        public string addproducturl
+        {
+            get { return _addproducturl;}
+            set { _addproducturl = "/Pictures/" + value + ".png"; OnPropertyChanged();}
+        }
+
+        public async void AddNewProduct()
+        {
+           await _productsCatalog.AddNewProduct(addproducturl,addproductname,addproductcost,addproducttype,addproductstock,addproductcolor,addproductsize);
+        }
+
+       
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
@@ -118,5 +115,17 @@ namespace Park_and_Garden.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-    }
+
+        /*public void AddToPoductDictionary(string key)
+        {
+            foreach (var p in _products )
+            {
+                if (p.Key == key)
+                {
+                    Products.Add(key, p.Value);
+                }
+            }
+        }*/
+        
+}
 }
