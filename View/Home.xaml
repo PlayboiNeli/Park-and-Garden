@@ -82,8 +82,10 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock  Margin="0,5,0,0" Text="In stock :" HorizontalAlignment="Left"/>
-                <TextBlock  Margin="4,5,0,0" Text="{Binding SelectedProduct.Stock}" HorizontalAlignment="Left"/>
+                <TextBlock  Margin="0,5,0,5" Text="In stock :" HorizontalAlignment="Left"/>
+                <Button Content="-" Height="45" Width="45" />
+                <TextBlock  Margin="10,5,10,0" Text="{Binding SelectedProduct.Stock}" HorizontalAlignment="Left"/>
+                <Button Content="+" Height="45" Width="45" Command="{Binding IncreaseCommand}" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
@@ -95,6 +97,8 @@
                 <TextBlock  Margin="0,5,0,0" Text="Size :" HorizontalAlignment="Left"/>
                 <TextBlock Margin="4,5,0,0" Text="{Binding SelectedProduct.Size}"/>
             </StackPanel>
+
+            <Button Width="150" Height="45" />
         </StackPanel>
 
 

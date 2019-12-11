@@ -26,7 +26,7 @@
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
                     <Button Content="Log-in" Command="{Binding LogInCommand, Mode=TwoWay}" Click="Button_Click"/>
                     <Button Content="Cancel" Margin="30"/>
-                </StackPanel>
+            </StackPanel>
         </StackPanel>
         </Frame>
     </Grid>
