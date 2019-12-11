@@ -4,12 +4,21 @@
     xmlns:local="using:Park_and_Garden.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:Custom="using:Microsoft.Xaml.Interactivity" xmlns:Custom1="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:viewModel="using:Park_and_Garden.ViewModel"
     x:Class="Park_and_Garden.View.ContactAdd"
     mc:Ignorable="d"
     Background="#25282A">
 
+    <Page.DataContext>
+        <viewModel:UsersViewModel/>
+    </Page.DataContext>
+
     <Page.Resources>
+        
+            <Style x:Key="Password" TargetType="TextBox">
+                <Setter Property="FontFamily" Value="./Assets/password-dots.ttf #Password Dots"/>
+            </Style>
+        
         <Style x:Key="BlockStyle" TargetType="TextBox">
             <Setter Property="FontSize" Value="30"/>
             <Setter Property="Background" Value="White"/>
@@ -44,10 +53,10 @@
                         </DataTemplate>
                     </TextBox.HeaderTemplate>
                 </TextBox>
-                <TextBox Style="{StaticResource BlockStyle}" Header="Password">
+                <TextBox Style="{StaticResource Password}" Header="Password" Background="White" FontSize="30" Height="97">
                     <TextBox.HeaderTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding}" Foreground="White"/>
+                            <TextBlock Text="{Binding}" Foreground="White" FontFamily="TimesNew" />
                         </DataTemplate>
                     </TextBox.HeaderTemplate>
                 </TextBox>
@@ -59,9 +68,8 @@
                     </TextBox.HeaderTemplate>
                 </TextBox>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Style="{StaticResource ButtonStyle}" Margin="20" Content="Cancel" Click="Button_Click">
-                    </Button>
-                    <Button Style="{StaticResource ButtonStyle}"  Content="Create Account"/>
+                    <Button Style="{StaticResource ButtonStyle}" Margin="20" Content="Cancel" Click="Button_Click"/>
+                    <Button Style="{StaticResource ButtonStyle}"  Content="Create Account" Click="Button_Click_1" Command="{Binding AddCommand}"/>
                 </StackPanel>
             </StackPanel>
         </Frame>
