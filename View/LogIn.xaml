@@ -9,17 +9,25 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <Page.Resources>
+        <Style x:Key="Password" TargetType="TextBox">
+            <Setter Property="FontFamily" Value="./Assets/password-dots.ttf #Password Dots"/>
+        </Style>    
+    </Page.Resources>
     <Page.DataContext>
         <viewModel:UsersViewModel/>
     </Page.DataContext>
     <Grid>
-        <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Top">
-            <TextBox Header="Enter your username:" PlaceholderText="Username" Text="{Binding Username}"  HorizontalAlignment="Center" Height="57" TextWrapping="Wrap" Width="331"/>
-            <PasswordBox Header="Enter your password:" PlaceholderText="Password"  HorizontalAlignment="Center" Height="57" Width="328"/>
+        <Frame Name="MainFrame" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBox Header="Enter your username:" PlaceholderText="Username" Text="{Binding Username, Mode=TwoWay}"  HorizontalAlignment="Center" Height="57" TextWrapping="Wrap" Width="331"/>
+            <TextBlock Text="Password:"/>
+                <TextBox Style="{StaticResource Password}" Text="{Binding Password, Mode=TwoWay}" Margin="0, 3" />
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
-                <Button Content="Log-in" Command="{Binding LogInCommand}"/>
-                <Button Content="Cancel" Margin="30"/>
-            </StackPanel>
+                    <Button Content="Log-in" Command="{Binding LogInCommand, Mode=TwoWay}" Click="Button_Click"/>
+                    <Button Content="Cancel" Margin="30"/>
+                </StackPanel>
         </StackPanel>
+        </Frame>
     </Grid>
 </Page>

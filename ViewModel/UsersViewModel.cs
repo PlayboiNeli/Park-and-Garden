@@ -7,6 +7,8 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.WebUI;
+using Windows.UI.Xaml.Controls;
 using Exe2009.Common;
 using Park_and_Garden.Annotations;
 using Park_and_Garden.Model;
@@ -34,7 +36,7 @@ namespace Park_and_Garden.ViewModel
         public string Password { get; set; }
         public string PhoneNumber { get; set; }
         public string Name { get; set; }
-        public bool IsLogedIn { get; set; }
+        public static bool IsLogedIn { get; set; }
 
         public User SelectedContact
         {
@@ -59,10 +61,15 @@ namespace Park_and_Garden.ViewModel
             var contact = _userCatalog.Users.FirstOrDefault(c => c.Username == Username);
             if (contact == null)
                 IsLogedIn = false;
-            else
-                IsLogedIn = true;
+            else {
+                if (contact.Password == Password)
+                    IsLogedIn = true;
+                else IsLogedIn = false;
+            }
+
 
         }
+
 
         public DeleteCommand DeletionCommand
         {
