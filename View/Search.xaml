@@ -5,15 +5,19 @@
     xmlns:local="using:Park_and_Garden.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:Park_and_Garden.ViewModel"
     mc:Ignorable="d"
     Background="#25282A">
 
+    <Page.DataContext>
+        <viewModel:UsersViewModel/>
+    </Page.DataContext>
     <Grid>
         <Frame Name="SearchFrame" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Margin="150,0,0,550">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="0">
-                    <TextBox Text="Search" FontSize="50" Foreground="#464646" Height="80" Width="500" BorderBrush="DimGray" Background="#D3D4D4" />
-                    <Button Height="80" Width="100" Background="#D3D4D4" FontFamily="Segoe MDL2 Assets" Content="&#xE71E;" FontSize="50" Foreground="#464646" BorderBrush="DimGray"/>
+                    <TextBox Text="{Binding Search, Mode=TwoWay}" FontSize="50" Foreground="#464646" Height="75" Width="500" BorderBrush="DimGray" Background="#D3D4D4" />
+                    <Button Height="75" Width="80" Background="#D3D4D4" FontFamily="Segoe MDL2 Assets" Content="&#xE71E;" FontSize="50" Foreground="#464646" BorderBrush="DimGray"/>
                 </StackPanel>
 
             </StackPanel>
