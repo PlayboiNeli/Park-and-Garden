@@ -34,9 +34,9 @@
                     <DataTemplate>
                         
                         <StackPanel Orientation="Vertical">
-                                <TextBlock Foreground="Black" Margin="0,0,0,0" Text="{Binding Key}" FontWeight="Bold"/>
+                                <TextBlock Foreground="Black" Margin="0,0,0,0" Text="{Binding Key, Mode=TwoWay}" FontWeight="Bold"/>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Foreground="DimGray" Margin="10,0,0,0" Text="{Binding Value.Count}"/>
+                            <TextBlock Foreground="DimGray" Margin="10,0,0,0" Text="{Binding Value.Count, Mode=TwoWay}"/>
                             <TextBlock Foreground="DimGray" Margin="4,0,0,0" Text="items in the list."/>
                                 </StackPanel>
                             </StackPanel>
@@ -52,19 +52,19 @@
                     <StackPanel Orientation="Vertical">
 
                         <StackPanel Orientation="Horizontal">
-                            <Image Source="{Binding Url}" Height="50" Width="50" Margin="5,5,25,5"/>
+                            <Image Source="{Binding Url, Mode=TwoWay}" Height="50" Width="50" Margin="5,5,25,5"/>
                             <StackPanel Orientation="Vertical">
-                                <TextBlock Foreground="Black" Margin="0,0,0,0" Text="{Binding Name}" FontWeight="Bold"/>
+                                <TextBlock Foreground="Black" Margin="0,0,0,0" Text="{Binding Name, Mode=TwoWay}" FontWeight="Bold"/>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Foreground="DimGray" Text="{Binding Cost}"/>
+                                    <TextBlock Foreground="DimGray" Text="{Binding Cost, Mode=TwoWay}"/>
                                     <TextBlock Foreground="DimGray" Text="HUF"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Foreground="DimGray" Text="In stock:"/>
-                                    <TextBlock Foreground="DimGray" Text="{Binding Stock}" Margin="4,0,0,0"/>
+                                    <TextBlock Foreground="DimGray" Text="{Binding Stock, Mode=TwoWay}" Margin="4,0,0,0"/>
                                 </StackPanel>
-                                <TextBlock Foreground="DimGray" Text="{Binding Color}"/>
-                                <TextBlock Foreground="DimGray" Text="{Binding Size}"/>
+                                <TextBlock Foreground="DimGray" Text="{Binding Color, Mode=TwoWay}"/>
+                                <TextBlock Foreground="DimGray" Text="{Binding Size, Mode=TwoWay}"/>
                             </StackPanel>
                         </StackPanel>
                     </StackPanel>
@@ -73,29 +73,29 @@
             </ListView.ItemTemplate>
         </ListView>
         <StackPanel Name="productstackpanne" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Collapsed">
-            <Image Source="{Binding SelectedProduct.Url}" Height="150" Width="150" Margin="5,5,25,5"/>
-            <TextBlock Foreground="Black" Margin="25,25,25,0" Text="{Binding SelectedProduct.Name}" FontWeight="Bold" FontSize="20"/>
+            <Image Source="{Binding SelectedProduct.Url, Mode=TwoWay}" Height="150" Width="150" Margin="5,5,25,5"/>
+            <TextBlock Foreground="Black" Margin="25,25,25,0" Text="{Binding SelectedProduct.Name, Mode=TwoWay}" FontWeight="Bold" FontSize="20"/>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock  Margin="0,5,0,0" Text="Price :" HorizontalAlignment="Left"/>
-                <TextBlock  Margin="4,5,0,0" Text="{Binding SelectedProduct.Cost}" HorizontalAlignment="Left"/>
+                <TextBlock  Margin="4,5,0,0" Text="{Binding SelectedProduct.Cost, Mode=TwoWay}" HorizontalAlignment="Left"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock  Margin="0,5,0,5" Text="In stock :" HorizontalAlignment="Left"/>
-                <Button Content="-" Height="45" Width="45" />
+                <Button Content="-" Height="45" Width="45" Command="{Binding DecreaseCommand, Mode=TwoWay}"/>
                 <TextBlock  Margin="10,5,10,0" Text="{Binding SelectedProduct.Stock}" HorizontalAlignment="Left"/>
-                <Button Content="+" Height="45" Width="45" Command="{Binding IncreaseCommand}" />
+                <Button Content="+" Height="45" Width="45" Command="{Binding IncreaseCommand, Mode=TwoWay}" />
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock  Margin="0,5,0,0" Text="Color :" HorizontalAlignment="Left"/>
-                <TextBlock  Margin="4,5,0,0" Text="{Binding SelectedProduct.Color}" HorizontalAlignment="Left"/>
+                <TextBlock  Margin="4,5,0,0" Text="{Binding SelectedProduct.Color, Mode=TwoWay}" HorizontalAlignment="Left"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                 <TextBlock  Margin="0,5,0,0" Text="Size :" HorizontalAlignment="Left"/>
-                <TextBlock Margin="4,5,0,0" Text="{Binding SelectedProduct.Size}"/>
+                <TextBlock Margin="4,5,0,0" Text="{Binding SelectedProduct.Size, Mode=TwoWay}"/>
             </StackPanel>
 
             <Button Width="150" Height="45" />
@@ -112,7 +112,7 @@
             <TextBlock Text="Add new item" HorizontalAlignment="Center" Margin="0,15,0,15" FontSize="18"/>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Procuct type:" Margin="20,5,25,5"/>
-                <ComboBox Width="150" HorizontalAlignment="Right" Name="MainComboBox" ItemsSource="{Binding Products.Keys}"  SelectedItem="{Binding addproducttype,Mode=TwoWay}">
+                <ComboBox Width="156" HorizontalAlignment="Right" Name="MainComboBox" ItemsSource="{Binding Products.Keys, Mode=TwoWay}"  SelectedItem="{Binding addproducttype,Mode=TwoWay}" SelectionChanged="MainComboBox_OnSelectionChanged" >
 
                 </ComboBox>
             </StackPanel>
@@ -124,31 +124,29 @@
 
             <StackPanel Style="{StaticResource StackPanelStyle}">
                 <TextBlock Text="Procuct cost:" Margin="20,5,25,5"/>
-                <TextBox Width="150" Text="{Binding addproductcost, Mode=TwoWay}"/>
+                <TextBox Width="160" Text="{Binding addproductcost, Mode=TwoWay}"/>
             </StackPanel>
 
             <StackPanel Style="{StaticResource StackPanelStyle}">
                 <TextBlock Text="Procuct in stock:" Margin="20,5,25,5"/>
-                <TextBox Width="150" Text="{Binding addproductstock, Mode=TwoWay}"/>
+                <TextBox Width="136" Text="{Binding addproductstock, Mode=TwoWay}"/>
             </StackPanel>
 
             <StackPanel Style="{StaticResource StackPanelStyle}" x:Name="ColorStackPanel">
                 <TextBlock Text="Color:" Margin="20,5,25,5"/>
-                <TextBox Width="150" Text="{Binding addproductcolor, Mode=TwoWay}"/>
+                <TextBox Width="200" Text="{Binding addproductcolor, Mode=TwoWay}"/>
             </StackPanel>
 
             <StackPanel Style="{StaticResource StackPanelStyle}" Name="SizeStackPanel">
                 <TextBlock Text="Size:" Margin="20,5,25,5"/>
-                <ComboBox Width="150" SelectedItem="{Binding addproductsize, Mode=TwoWay}" ItemsSource="{Binding optionForSize}">
+                <ComboBox Width="208" SelectedItem="{Binding addproductsize, Mode=TwoWay}" ItemsSource="{Binding optionForSize}">
 
                 </ComboBox>
             </StackPanel>
 
             <StackPanel Style="{StaticResource StackPanelStyle}" Name="UrlStackPanel">
                 <TextBlock Text="Picture:" Margin="20,5,25,5"/>
-                <ComboBox Width="150" ItemsSource="{Binding optionForPicture}" SelectedItem="{Binding addproducturl,Mode=TwoWay}">
-
-                </ComboBox>
+                <ComboBox Width="190" ItemsSource="{Binding optionForPicture}" SelectedItem="{Binding addproducturl,Mode=TwoWay}"/>
             </StackPanel>
             <Button Command="{Binding AddCommand}" HorizontalAlignment="Center" Content="Save"/>
 
