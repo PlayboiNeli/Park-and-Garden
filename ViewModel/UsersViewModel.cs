@@ -22,7 +22,7 @@ namespace Park_and_Garden.ViewModel
         private UsersCatalog _userCatalog;
         private User _selectedUser;
         private DeleteCommand _deletionCommand;
-
+        private string _searchQuery;
         
 
         public UsersViewModel()
@@ -54,6 +54,26 @@ namespace Park_and_Garden.ViewModel
                 _deletionCommand.RaiseCanExecuteChanged();
             }
         }
+
+        public string Search
+        {
+            get
+            {
+               var result = UsersCollection.FirstOrDefault(u => u.Name == _searchQuery);
+               if (result !=null)
+               {
+                    return result.Name;
+               }
+
+               return "Search";
+            }
+            set
+            {
+                _searchQuery = value;
+                OnPropertyChanged();
+            }
+        }
+
         public void AddContact()
         {
             _userCatalog.AddUser(new User(Name, Username, Password, PhoneNumber));
@@ -78,6 +98,7 @@ namespace Park_and_Garden.ViewModel
 
         }
 
+        
 
 
         public DeleteCommand DeletionCommand => _deletionCommand;

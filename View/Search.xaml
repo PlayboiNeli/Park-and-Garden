@@ -17,11 +17,12 @@
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Margin="150,0,0,550">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="0">
                     <TextBox Text="{Binding Search, Mode=TwoWay}" FontSize="50" Foreground="#464646" Height="75" Width="500" BorderBrush="DimGray" Background="#D3D4D4" />
-                    <Button Height="75" Width="80" Background="#D3D4D4" FontFamily="Segoe MDL2 Assets" Content="&#xE71E;" FontSize="50" Foreground="#464646" BorderBrush="DimGray"/>
+                  <!--
+                    <Button Height="75" Width="80" Background="#D3D4D4" FontFamily="Segoe MDL2 Assets" Content="&#xE71E;" FontSize="50" Foreground="#464646" BorderBrush="DimGray"/> -->
                 </StackPanel>
-
+  <TextBox Text="{Binding Name}"/>
             </StackPanel>
-
+            
         </Frame>
     </Grid>
 </Page>
