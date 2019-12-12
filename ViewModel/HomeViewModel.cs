@@ -31,6 +31,7 @@ namespace Park_and_Garden.ViewModel
             AddCommand = new RelayCommand(AddNewProduct);
             _productsCatalog = ProductsCatalog.Instance;
             IncreaseCommand = new RelayCommand(IncreaseProductStock);
+            DecreaseCommand = new RelayCommand(DecreaseProductStock);
             // Products.Add("Pots",Pots);
             // Products.Add("Goods", Goods);
             //  Products.Add("Plants", Plants);
@@ -109,8 +110,18 @@ namespace Park_and_Garden.ViewModel
         public void IncreaseProductStock()
         {
             SelectedProduct.Stock++;
+            _productsCatalog.SaveDomainObjects();
         }
-       
+        public void DecreaseProductStock()
+        {
+            if (SelectedProduct.Stock > 0)
+            {
+                SelectedProduct.Stock--;
+                _productsCatalog.SaveDomainObjects();
+            }
+
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
