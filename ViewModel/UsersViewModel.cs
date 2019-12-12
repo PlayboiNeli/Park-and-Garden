@@ -7,12 +7,12 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Windows.Graphics.Printing;
 using Windows.UI.WebUI;
 using Windows.UI.Xaml.Controls;
 using Exe2009.Common;
 using Park_and_Garden.Annotations;
 using Park_and_Garden.Model;
+using Park_and_Garden.View;
 
 namespace Park_and_Garden.ViewModel
 {
@@ -22,30 +22,30 @@ namespace Park_and_Garden.ViewModel
         private UsersCatalog _userCatalog;
         private User _selectedUser;
         private DeleteCommand _deletionCommand;
-        
+
         
 
         public UsersViewModel()
         {
-            _userCatalog = new UsersCatalog();
+            
+               _userCatalog = new UsersCatalog();
                _selectedUser = null;
-               LogInCommand = new RelayCommand(Login);
+          //  LogInCommand = new RelayCommand(Login);
+            AddContactCommand = new RelayCommand(AddContact);
             _deletionCommand = new DeleteCommand(_userCatalog, this);
         }
-
-        public ICommand LogInCommand { get; set; }
+      //  public ICommand LogInCommand { get; set; }
+        public ICommand AddContactCommand { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public int PhoneNumber { get; set; }
         public string Name { get; set; }
-        public static bool IsLogedIn { get; set; }
+        public bool IsLogedIn { get; set; }
+        public static bool IsAdmin { get; set; }
 
         public User SelectedContact
         {
-            get
-            {
-                return _selectedUser;
-            }
+            get => _selectedUser;
 
             set
             {
@@ -54,33 +54,36 @@ namespace Park_and_Garden.ViewModel
                 _deletionCommand.RaiseCanExecuteChanged();
             }
         }
+        public void AddContact()
+        {
+            _userCatalog.AddUser(new User(Name, Username, Password, PhoneNumber));
+        }
 
-        public void Login()
+        public bool Login(string username, string password)
         {
 
             //search for user in the list
             //if user exists then
-            var contact = _userCatalog.Users.FirstOrDefault(c => c.Username == Username);
+            var contact = _userCatalog.Users.FirstOrDefault(c => c.Username == username);
             if (contact == null)
                 IsLogedIn = false;
-            else {
-                if (contact.Password == Password)
-                    IsLogedIn = true;
-                else IsLogedIn = false;
+            else
+            {
+                IsLogedIn = contact.Password == password;
+
+                IsAdmin = contact.IsAdmin;
             }
+
+            return IsLogedIn;
+
         }
 
 
-        public DeleteCommand DeletionCommand
-        {
-            get { return _deletionCommand; }
-        }
 
-        public ObservableCollection<User> UsersCollection
-        {
-            get { return _userCatalog.Users; }
-       
-        }
+        public DeleteCommand DeletionCommand => _deletionCommand;
+
+        public ObservableCollection<User> UsersCollection => _userCatalog.Users;
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -90,4 +93,5 @@ namespace Park_and_Garden.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
+
 }

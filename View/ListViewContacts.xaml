@@ -6,40 +6,59 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="using:Park_and_Garden.ViewModel"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.DataContext>
         <viewModel:UsersViewModel/>
     </Page.DataContext>
+    <Page.Resources>
+        <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="36" />
+            <Setter Property="Width" Value="300" />
+            <Setter Property="Margin" Value="20,20,20,20" />
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="Margin" Value="10,10,10,10" />
+        </Style>
+    </Page.Resources>
     <Grid>
-        <Frame Name="LvContacts" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <ListView ItemsSource="{Binding UsersCollection}" SelectedItem="{Binding SelectedContact, Mode=TwoWay}" >
+        <StackPanel Margin="0,0,1149,0">
+            <ListView Name="ContactsListView" ItemsSource="{Binding UsersCollection}" SelectedItem="{Binding SelectedContact, Mode=TwoWay}" SelectionChanged="ContactsListView_OnSelectionChanged" >
                 <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock
-                            Margin="10,10,10,10"
-                            VerticalAlignment="Center"
-                            FontSize="18"
-                            Text="{Binding Name}" />
-                        <TextBlock
-                            Margin="10,10,10,10"
-                            VerticalAlignment="Center"
-                            FontSize="18"
-                            Text="{Binding Username}" />
-                        <TextBlock
-                            Margin="10,10,10,10"
-                            VerticalAlignment="Center"
-                            FontSize="18"
-                            Text="{Binding PhoneNumber}" />
+                    <DataTemplate>
+
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Foreground="Black" Margin="0,0,0,0" Text="{Binding Name}" FontWeight="Bold"/>
                         </StackPanel>
-                </DataTemplate>
+
+                    </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+        </StackPanel>
 
+        <StackPanel Margin="419,0,230,0" Orientation="Vertical" Name="Contacts" Visibility="Collapsed">
+            <StackPanel
+                Orientation="Horizontal" Height="457" Width="849">
+                <StackPanel Height="453" Width="307">
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding SelectedContact.Name}" />
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding SelectedContact.Username}" />
+                    <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding SelectedContact.PhoneNumber}" />
+                </StackPanel>
 
-        </Frame>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Height="63">
+                <Button
+                    Style="{StaticResource ButtonStyle}"
+                    Margin="10"
+                    Command="{Binding DeletionCommand}"
+                    Content="Delete" />
+            </StackPanel>
+        </StackPanel>
+
 
     </Grid>
 </Page>

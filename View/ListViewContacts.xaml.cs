@@ -26,5 +26,18 @@ namespace Park_and_Garden.View
         {
             this.InitializeComponent();
         }
+        private void ContactsListView_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ContactsListView.SelectedItem == null)
+            {
+                Contacts.Visibility = Visibility.Collapsed;
+            }
+            if (ContactsListView.SelectedItem != null)
+            {
+                Contacts.Visibility = Visibility.Visible;
+            }
+        }
+
+        
     }
 }

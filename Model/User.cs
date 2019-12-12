@@ -14,6 +14,7 @@ namespace Park_and_Garden.Model
             Username = username;
             Password= password;
             PhoneNumber = phoneNumber;
+            IsAdmin = false;
         }
 
         public int PhoneNumber { get; set; }
@@ -24,7 +25,9 @@ namespace Park_and_Garden.Model
 
         public string Name { get; set; }
 
+        public bool IsAdmin { get; internal set; }
 
-        
+
+
     }
 }
