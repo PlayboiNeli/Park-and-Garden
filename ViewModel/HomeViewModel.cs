@@ -109,7 +109,6 @@ namespace Park_and_Garden.ViewModel
         public void IncreaseProductStock()
         {
             SelectedProduct.Stock++;
-            OnPropertyChanged();
         }
        
         public event PropertyChangedEventHandler PropertyChanged;

@@ -12,9 +12,8 @@ namespace Park_and_Garden.ViewModel
     {
 
         private UsersCatalog _catalog;
-        private ProductsCatalog _pcatalog;
         private UsersViewModel _viewModel;
-        private HomeViewModel _pViewModel;
+
 
         public DeleteCommand(UsersCatalog catalog, UsersViewModel viewModel)
         {

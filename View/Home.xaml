@@ -112,7 +112,7 @@
             <TextBlock Text="Add new item" HorizontalAlignment="Center" Margin="0,15,0,15" FontSize="18"/>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Procuct type:" Margin="20,5,25,5"/>
-                <ComboBox Width="150" HorizontalAlignment="Right" Name="MainComboBox" ItemsSource="{Binding Products.Keys}"  SelectedItem="{Binding addproducttype,Mode=TwoWay}">
+                <ComboBox Width="150" HorizontalAlignment="Right" Name="MainComboBox" ItemsSource="{Binding Products.Keys}"  SelectedItem="{Binding addproducttype,Mode=TwoWay}" SelectionChanged="MainComboBox_OnSelectionChanged" >
 
                 </ComboBox>
             </StackPanel>

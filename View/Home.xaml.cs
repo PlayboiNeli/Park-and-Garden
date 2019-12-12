@@ -46,5 +46,29 @@ namespace Park_and_Garden.View
                 productstackpanne.Visibility = Visibility.Visible;
             }
         }
+
+        private void MainComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (MainComboBox.SelectedItem.ToString() == "Plants")
+            {
+                ColorStackPanel.Visibility = Visibility.Collapsed;
+            }
+            if (MainComboBox.SelectedItem.ToString() == "Goods")
+            {
+                ColorStackPanel.Visibility = Visibility.Collapsed;
+                SizeStackPanel.Visibility = Visibility.Collapsed;
+
+            }
+            if (MainComboBox.SelectedItem.ToString() == "Pots")
+            {
+                ColorStackPanel.Visibility = Visibility.Visible;
+                SizeStackPanel.Visibility = Visibility.Visible;
+            }
+            if (MainComboBox.SelectedItem.ToString() == "Flowers")
+            {
+                ColorStackPanel.Visibility = Visibility.Visible;
+                SizeStackPanel.Visibility = Visibility.Visible;
+            }
+        }
     }
 }
