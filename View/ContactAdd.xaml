@@ -9,9 +9,9 @@
     mc:Ignorable="d"
     Background="#25282A">
 
-    <Page.DataContext>
-        <viewModel:UsersViewModel/>
-    </Page.DataContext>
+<Page.DataContext>
+    <viewModel:UsersViewModel/>
+</Page.DataContext>
 
     <Page.Resources>
         
@@ -36,31 +36,33 @@
         </Style>
     </Page.Resources>
 
+    
+
     <Grid>
         <Frame Name="AddContactFrame" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="511" Width="520">
-                <TextBox Style="{StaticResource BlockStyle}" Header="Name" Text="{Binding Name}">
+                <TextBox Style="{StaticResource BlockStyle}" Header="Name" Text="{Binding Name, Mode=TwoWay}">
                     <TextBox.HeaderTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding}" Foreground="White"/>
                         </DataTemplate>
                     </TextBox.HeaderTemplate>
                 </TextBox>
-                <TextBox Style="{StaticResource BlockStyle}" Header="Username" Text="{Binding Username}">
+                <TextBox Style="{StaticResource BlockStyle}" Header="Username" Text="{Binding Username, Mode=TwoWay}">
                     <TextBox.HeaderTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding}" Foreground="White"/>
                         </DataTemplate>
                     </TextBox.HeaderTemplate>
                 </TextBox>
-                <TextBox Style="{StaticResource Password}" Header="Password" Background="White" FontSize="30" Height="97" Text="{Binding Password}">
+                <TextBox Style="{StaticResource Password}" Header="Password" Background="White" FontSize="30" Height="97" Text="{Binding Password, Mode=TwoWay}">
                     <TextBox.HeaderTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding}" Foreground="White" FontFamily="TimesNew" />
                         </DataTemplate>
                     </TextBox.HeaderTemplate>
                 </TextBox>
-                <TextBox Style="{StaticResource BlockStyle}" Header="Phone number" Text="{Binding PhoneNumber}">
+                <TextBox Style="{StaticResource BlockStyle}" Header="Phone number" Text="{Binding PhoneNumber, Mode=TwoWay}">
                     <TextBox.HeaderTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding}" Foreground="White"/>
@@ -69,7 +71,7 @@
                 </TextBox>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <Button Style="{StaticResource ButtonStyle}" Margin="20" Content="Cancel" Click="Button_Click"/>
-                    <Button Style="{StaticResource ButtonStyle}"  Content="Create Account" Command="{Binding AddCommand}"/>
+                    <Button Style="{StaticResource ButtonStyle}"  Content="Create Account" Command="{Binding AddContactCommand}"/>
                 </StackPanel>
             </StackPanel>
         </Frame>

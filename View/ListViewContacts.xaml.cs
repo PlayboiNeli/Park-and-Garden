@@ -37,5 +37,7 @@ namespace Park_and_Garden.View
                 Contacts.Visibility = Visibility.Visible;
             }
         }
+
+        
     }
 }

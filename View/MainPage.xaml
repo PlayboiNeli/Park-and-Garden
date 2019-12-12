@@ -60,7 +60,7 @@
                         </StackPanel>
                     </ListViewItem>
 
-                    <ListViewItem Name="ListViewItem_Add">
+                    <ListViewItem Name="ListViewItem_Add" >
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Style="{StaticResource MenuListItemIcons}" Text="&#xE948;"/>
                             <TextBlock Style="{StaticResource MenuListItems}" Text="Add new item"/>

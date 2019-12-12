@@ -46,5 +46,6 @@ namespace Park_and_Garden.View
                 productstackpanne.Visibility = Visibility.Visible;
             }
         }
+
     }
 }

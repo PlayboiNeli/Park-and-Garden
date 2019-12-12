@@ -18,13 +18,13 @@
         <viewModel:UsersViewModel/>
     </Page.DataContext>
     <Grid>
-        <Frame Name="MainFrame" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Frame Name="MainFrame" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:FieldModifier="public">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                <TextBox Header="Enter your username:" PlaceholderText="Username" Text="{Binding Username, Mode=TwoWay}"  HorizontalAlignment="Center" Height="57" TextWrapping="Wrap" Width="331" />
+                <TextBox Name="TbxUsername" Header="Enter your username:" PlaceholderText="Username"  HorizontalAlignment="Center" Height="57" TextWrapping="Wrap" Width="331" />
             <TextBlock Text="Password:"/>
-                <TextBox Style="{StaticResource Password}" Text="{Binding Password, Mode=TwoWay}" Margin="0, 3" />
+                <TextBox Name="TbxPassword" Style="{StaticResource Password}" Text="{Binding Password, Mode=TwoWay}" Margin="0, 3" />
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
-                    <Button Content="Log-in" Command="{Binding LogInCommand, Mode=TwoWay}" Click="Button_Click"/>
+                    <Button Name="Button1" Content="Log-in" Click="Button_Click"/>
                     <Button Content="Cancel" Margin="30"/>
             </StackPanel>
         </StackPanel>

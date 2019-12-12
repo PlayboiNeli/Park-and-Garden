@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Park_and_Garden.ViewModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -42,10 +43,12 @@ namespace Park_and_Garden
             {
                 MainFrame.Navigate(typeof(Home));
             }
+
             if (ListViewItem_Search.IsSelected)
             {
                 MainFrame.Navigate(typeof(Search));
             }
+
             if (ListViewItem_Add.IsSelected)
             {
                 MainFrame.Navigate(typeof(ContactAdd));
@@ -57,5 +60,6 @@ namespace Park_and_Garden
             }
 
         }
+
     }
 }
