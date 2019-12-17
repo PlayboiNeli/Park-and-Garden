@@ -7,7 +7,7 @@
     xmlns:viewModel="using:Park_and_Garden.ViewModel"
     x:Class="Park_and_Garden.View.ContactAdd"
     mc:Ignorable="d"
-    Background="#25282A">
+    Background="White">
 
 <Page.DataContext>
     <viewModel:UsersViewModel/>
@@ -44,28 +44,28 @@
                 <TextBox Style="{StaticResource BlockStyle}" Header="Name" Text="{Binding Name, Mode=TwoWay}">
                     <TextBox.HeaderTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding}" Foreground="White"/>
+                            <TextBlock Text="{Binding}" Foreground="Black"/>
                         </DataTemplate>
                     </TextBox.HeaderTemplate>
                 </TextBox>
                 <TextBox Style="{StaticResource BlockStyle}" Header="Username" Text="{Binding Username, Mode=TwoWay}">
                     <TextBox.HeaderTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding}" Foreground="White"/>
+                            <TextBlock Text="{Binding}" Foreground="Black"/>
                         </DataTemplate>
                     </TextBox.HeaderTemplate>
                 </TextBox>
                 <TextBox Style="{StaticResource Password}" Header="Password" Background="White" FontSize="30" Height="97" Text="{Binding Password, Mode=TwoWay}">
                     <TextBox.HeaderTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding}" Foreground="White" FontFamily="TimesNew" />
+                            <TextBlock Text="{Binding}" Foreground="Black" FontFamily="TimesNew" />
                         </DataTemplate>
                     </TextBox.HeaderTemplate>
                 </TextBox>
                 <TextBox Style="{StaticResource BlockStyle}" Header="Phone number" Text="{Binding PhoneNumber, Mode=TwoWay}">
                     <TextBox.HeaderTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding}" Foreground="White"/>
+                            <TextBlock Text="{Binding}" Foreground="Black"/>
                         </DataTemplate>
                     </TextBox.HeaderTemplate>
                 </TextBox>
