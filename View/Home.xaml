@@ -88,7 +88,7 @@
                 <Button Content="+" Height="45" Width="45" Command="{Binding IncreaseCommand, Mode=TwoWay}" />
             </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal">
                 <TextBlock  Margin="0,5,0,0" Text="Color :" HorizontalAlignment="Left"/>
                 <TextBlock  Margin="4,5,0,0" Text="{Binding SelectedProduct.Color, Mode=TwoWay}" HorizontalAlignment="Left"/>
             </StackPanel>
@@ -98,7 +98,7 @@
                 <TextBlock Margin="4,5,0,0" Text="{Binding SelectedProduct.Size, Mode=TwoWay}"/>
             </StackPanel>
 
-            <Button Width="150" Height="45" />
+            <Button Width="150" Height="45" Margin="25,35,25,25" HorizontalAlignment="Center" Content="Delete - not working" Command="{Binding DeleteCommand}"/>
         </StackPanel>
 
 

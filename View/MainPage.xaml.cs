@@ -33,7 +33,7 @@ namespace Park_and_Garden
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
-            MenuSplitView.IsPaneOpen = !MenuSplitView.IsPaneOpen;
+            MenuSplitView.IsPaneOpen =! MenuSplitView.IsPaneOpen;
         }
 
 

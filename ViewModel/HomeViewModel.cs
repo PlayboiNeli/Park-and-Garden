@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Controls;
 using Exe2009.Common;
 using Park_and_Garden.Annotations;
 using Newtonsoft.Json;
+using Park_and_Garden.Common;
 
 namespace Park_and_Garden.ViewModel 
 {
@@ -25,28 +26,27 @@ namespace Park_and_Garden.ViewModel
     {
         private ProductsCatalog _productsCatalog;
         private Product _product;
-
+        private DeleteProductCommand _deleteCommand;
         public HomeViewModel()
         {
             AddCommand = new RelayCommand(AddNewProduct);
             _productsCatalog = ProductsCatalog.Instance;
             IncreaseCommand = new RelayCommand(IncreaseProductStock);
             DecreaseCommand = new RelayCommand(DecreaseProductStock);
-            // Products.Add("Pots",Pots);
-            // Products.Add("Goods", Goods);
-            //  Products.Add("Plants", Plants);
-            // Products.Add("Flowers", Flowers);
-
-            /*AddToPoductDictionary("Goods");
-             AddToPoductDictionary("Plants");
-             AddToPoductDictionary("Pots");
-             AddToPoductDictionary("Flowers");*/
+            _deleteCommand = new DeleteProductCommand(_productsCatalog, this);
         }
 
 
         public ICommand AddCommand { get; set; }
         public ICommand IncreaseCommand { get; set; }
         public ICommand DecreaseCommand { get; set; }
+
+        public DeleteProductCommand DeleteCommand
+        {
+            get { return _deleteCommand; }
+            set { _deleteCommand = value; }
+        }
+    
 
         private KeyValuePair<string, ObservableCollection<Product>> _selectedProductDictionary;
         public KeyValuePair<string, ObservableCollection<Product>> SelectedProductDictionary
@@ -75,7 +75,7 @@ namespace Park_and_Garden.ViewModel
 
         private ObservableCollection<string> _optionForPicture = new ObservableCollection<string>()
         {
-            "lily", "rose","lotus","aloe-vera", "anemone", "anthurium"
+            "lily", "rose","lotus","aloe-vera", "anemone", "anthurium" , "pine","palm-tree","tulip","tree","oak","gift-box","cactus","cactus-2"
         };
         public ObservableCollection<string> optionForPicture
         {
@@ -105,6 +105,8 @@ namespace Park_and_Garden.ViewModel
         public async void AddNewProduct()
         {
            await _productsCatalog.AddNewProduct(addproducturl,addproductname,addproductcost,addproducttype,addproductstock,addproductcolor,addproductsize);
+           addproductcolor = null;
+           addproductsize = null;
         }
 
         public void IncreaseProductStock()

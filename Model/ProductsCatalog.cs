@@ -24,11 +24,9 @@ namespace Park_and_Garden.Model
         private readonly StorageFolder _storageFolder = ApplicationData.Current.LocalFolder;
 
 
-        //If I use singleton it  must be private so nobody can create a new object.
+        //I use singleton, so it  must be private so nobody can create a new object.
         private ProductsCatalog()
-        {
-            
-        }
+        { }
 
         public static ProductsCatalog Instance
         {
@@ -98,7 +96,7 @@ namespace Park_and_Garden.Model
 
                 if (!_products.ContainsKey(addproducttype))
                 {
-                    _products.Add(addproducttype, Pots);
+                    _products.Add(addproducttype, Flowers);
                 }
                 else
                 {
@@ -112,7 +110,7 @@ namespace Park_and_Garden.Model
                 
                  if (!_products.ContainsKey(addproducttype))
                  {
-                     _products.Add(addproducttype, Pots);
+                     _products.Add(addproducttype, Plants);
                  }
                  else
                  {
@@ -125,7 +123,7 @@ namespace Park_and_Garden.Model
                      addproducturl);
                 if (!_products.ContainsKey(addproducttype))
                 {
-                    _products.Add(addproducttype, Pots);
+                    _products.Add(addproducttype, Goods);
                 }
                 else
                 {
@@ -136,27 +134,48 @@ namespace Park_and_Garden.Model
              SaveDomainObjects();
          }
 
-        private void OnPropertyChanged()
-        {
-            throw new NotImplementedException();
-        }
-
 
         public async  Task SaveDomainObjects()
         {
             string json = JsonConvert.SerializeObject(_products);
+            //wait File.WriteAllTextAsync(ProductsData, json);
+
+            // The program works with storage folder, the only reason I don't use it is that we couldn't make you the example products that way.
             await FileIO.WriteTextAsync(await _storageFolder.CreateFileAsync(ProductsData, CreationCollisionOption.OpenIfExists), json);
         }
         public async Task LoadDomainObjects()
         {
+
+          //  string products = await File.ReadAllTextAsync(ProductsData);
             string products = await FileIO.ReadTextAsync(await _storageFolder.CreateFileAsync(ProductsData, CreationCollisionOption.OpenIfExists));
             _products = JsonConvert.DeserializeObject<Dictionary<string, ObservableCollection<Product>>>(products);
         }
 
 
-        public override string ToString()
-       {
-           return base.ToString();
-       }
+        /*public void Delete(string name, KeyValuePair<string,ObservableCollection<Product>> type)
+        {
+            var productlist = _products.FirstOrDefault(c => c.Key == type.Key);
+            var product = productlist.Value.FirstOrDefault(c => c.Name == name);
+            if (type.Key == "Goods")
+            {
+                Goods.Remove(product);
+
+            }
+            if (type.Key == "Pots")
+            {
+                Pots.Remove(product);
+            }
+            if (type.Key == "Plants")
+            {
+                Plants.Remove(product);
+
+            }
+            if (type.Key == "Flowers")
+            {
+                Flowers.Remove(product);
+
+            }
+        }*/
+
     }
 }

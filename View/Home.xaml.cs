@@ -45,6 +45,7 @@ namespace Park_and_Garden.View
             {
                 productstackpanne.Visibility = Visibility.Visible;
             }
+
         }
 
         private void MainComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
