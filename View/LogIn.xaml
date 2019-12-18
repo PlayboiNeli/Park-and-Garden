@@ -23,6 +23,7 @@
                 <TextBox Name="TbxUsername" Header="Enter your username:" PlaceholderText="Username"  HorizontalAlignment="Center" Height="57" TextWrapping="Wrap" Width="331" />
             <TextBlock Text="Password:"/>
                 <TextBox Name="TbxPassword" Style="{StaticResource Password}" Text="{Binding Password, Mode=TwoWay}" Margin="0, 3" />
+                <TextBlock Name="ErrorMessage" Text="Invalid username/password" FontStyle="Italic" Foreground="Red" Visibility="Collapsed"/>
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal" Margin="20">
                     <Button Name="Button1" Content="Log-in" Click="Button_Click"/>
             </StackPanel>

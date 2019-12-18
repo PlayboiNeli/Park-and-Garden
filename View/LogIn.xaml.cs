@@ -38,6 +38,10 @@ namespace Park_and_Garden.View
             {
                 this.Frame.Navigate(typeof(MainPage));
             }
+            else
+            {
+                ErrorMessage.Visibility = Visibility.Visible;
+            }
 
             
         }
