@@ -18,6 +18,7 @@ using Park_and_Garden.ViewModel;
 
 namespace Park_and_Garden.View
 {
+    //Made by Andreea Vasiliu
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>

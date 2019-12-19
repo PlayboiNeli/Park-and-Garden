@@ -8,6 +8,7 @@ using Park_and_Garden.Model;
 
 namespace Park_and_Garden.ViewModel
 {
+    //Made by Andreea Vasiliu
     public class DeleteCommand : ICommand
     {
 

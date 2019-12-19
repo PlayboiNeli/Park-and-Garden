@@ -12,6 +12,8 @@ using Newtonsoft.Json;
 
 namespace Park_and_Garden.Model
 {
+    //Made by János Dominik Haskó
+
      class ProductsCatalog
     {
         private static ProductsCatalog _instance = null;

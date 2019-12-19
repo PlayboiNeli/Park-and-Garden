@@ -16,6 +16,7 @@ using Park_and_Garden.View;
 
 namespace Park_and_Garden.ViewModel
 {
+    //Made by Andreea Vasiliu
     public class UsersViewModel :INotifyPropertyChanged
     {
         private User _domainObject;

@@ -21,6 +21,9 @@ using Park_and_Garden.Common;
 
 namespace Park_and_Garden.ViewModel 
 {
+
+    //Made by János Dominik Haskó
+
     [Serializable]
      class HomeViewModel :INotifyPropertyChanged
     {
@@ -105,8 +108,6 @@ namespace Park_and_Garden.ViewModel
         public async void AddNewProduct()
         {
            await _productsCatalog.AddNewProduct(addproducturl,addproductname,addproductcost,addproducttype,addproductstock,addproductcolor,addproductsize);
-           addproductcolor = null;
-           addproductsize = null;
         }
 
         public void IncreaseProductStock()
@@ -132,16 +133,7 @@ namespace Park_and_Garden.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        /*public void AddToPoductDictionary(string key)
-        {
-            foreach (var p in _products )
-            {
-                if (p.Key == key)
-                {
-                    Products.Add(key, p.Value);
-                }
-            }
-        }*/
+
         
 }
 }

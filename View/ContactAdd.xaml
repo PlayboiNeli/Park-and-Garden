@@ -9,12 +9,14 @@
     mc:Ignorable="d"
     Background="White">
 
-<Page.DataContext>
+<!-- Made by Leon Lukovic -->
+
+    <Page.DataContext>
     <viewModel:UsersViewModel/>
 </Page.DataContext>
-
+ 
     <Page.Resources>
-        
+               
             <Style x:Key="Password" TargetType="TextBox">
                 <Setter Property="FontFamily" Value="./Assets/password-dots.ttf #Password Dots"/>
             </Style>
@@ -24,7 +26,7 @@
             <Setter Property="Background" Value="White"/>
             <Setter Property="Header" Value=""/>
         </Style>
-
+        
         <!-- This is style for the buttons -->
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Height" Value="60"/>

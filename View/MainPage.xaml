@@ -8,6 +8,8 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+<!-- Made by János Dominik Haskó !-->
+
     <Page.Resources>
         <Style x:Key="MenuListItems" TargetType="TextBlock">
             <Setter Property="FontSize" Value="16"/>

@@ -10,6 +10,8 @@ namespace Park_and_Garden.Model
 {
     public class UsersCatalog
     {
+        //Made by Andreea Vasiliu
+
         private static ObservableCollection<User> _users = new ObservableCollection<User>()
         {
             new User("Dominik", "dominik3000", "1234", 25693),

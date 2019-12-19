@@ -9,9 +9,11 @@ using Park_and_Garden.ViewModel;
 
 namespace Park_and_Garden.Common
 {
+    //Made by János Dominik Haskó
+
     class DeleteProductCommand : ICommand
     {
-        //This part is not ready yet.
+        //This part is not ready yet. Unfunctial.
 
         private ProductsCatalog _products;
         private HomeViewModel _homeViewModel;

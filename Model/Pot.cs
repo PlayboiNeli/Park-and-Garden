@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Park_and_Garden.Model
 {
+    //Made by Dominik János Haskó
+
     class Pot : Product
     {
         private string _color;

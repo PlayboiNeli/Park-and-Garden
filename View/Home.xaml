@@ -9,6 +9,8 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+    <!-- Made by János Dominik Haskó !-->
+
     <Page.DataContext>
         <ViewModel:HomeViewModel/>
     </Page.DataContext>
@@ -86,16 +88,6 @@
                 <Button Content="-" Height="45" Width="45" Command="{Binding DecreaseCommand, Mode=TwoWay}"/>
                 <TextBlock  Margin="10,5,10,0" Text="{Binding SelectedProduct.Stock}" HorizontalAlignment="Left"/>
                 <Button Content="+" Height="45" Width="45" Command="{Binding IncreaseCommand, Mode=TwoWay}" />
-            </StackPanel>
-
-                <StackPanel Orientation="Horizontal">
-                <TextBlock  Margin="0,5,0,0" Text="Color :" HorizontalAlignment="Left"/>
-                <TextBlock  Margin="4,5,0,0" Text="{Binding SelectedProduct.Color, Mode=TwoWay}" HorizontalAlignment="Left"/>
-            </StackPanel>
-
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <TextBlock  Margin="0,5,0,0" Text="Size :" HorizontalAlignment="Left"/>
-                <TextBlock Margin="4,5,0,0" Text="{Binding SelectedProduct.Size, Mode=TwoWay}"/>
             </StackPanel>
 
             <Button Width="150" Height="45" Margin="25,35,25,25" HorizontalAlignment="Center" Content="Delete - not working" Command="{Binding DeleteCommand}"/>

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Park_and_Garden.Model
 {
+    //Made by Dominik János Haskó
     class Plant : Product
     {
         private string _size;

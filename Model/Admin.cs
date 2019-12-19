@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Park_and_Garden.Model
 {
+    //Made by Andreea Vasiliu
     public class Admin : User
     {
         public Admin(string name, string username, string password, int phoneNumber) : base(name, username, password,

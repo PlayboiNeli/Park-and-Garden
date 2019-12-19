@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Park_and_Garden.Model
 {
+    //Made by Andreea Vasiliu
+
     public class User
     {
         public User(string name, string username, string password, int phoneNumber)
